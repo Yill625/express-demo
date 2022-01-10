@@ -1,7 +1,13 @@
-var express = require("express")
-var app = express()
+const express = require("express")
+const app = express()
+const port = 3000
 
-// 当对主页发出 GET 请求时，响应“hello world”
-app.get("/", function (req, res) {
-  res.send("hello world")
+app.get("/", (req, res) => {
+  // 响应方法
+  // 下载
+  res.download("./api/login.js")
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
 })
