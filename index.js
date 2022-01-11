@@ -20,8 +20,9 @@ app.get("/", (req, res) => {
   //     res.send(html)
   //   })
   // res.send 发送各种消息
-  res.set("Content-Type", "text/html");
-  res.send(Buffer.from("<p>some html</p>"));
+  // res.set("Content-Type", "text/html");
+  // res.send(Buffer.from("<p>some html</p>"));
+  res.sendStatus(404);
 });
 
 app.listen(port, () => {
