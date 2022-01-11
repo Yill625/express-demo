@@ -1,11 +1,12 @@
-const express = require("express")
-const app = express()
-const port = 3000
-
+const express = require("express");
+const app = express();
+const port = 3000;
+const login = require("./api/login");
+app.use("/login", login);
 app.get("/", (req, res) => {
   // 响应方法
   // 下载
-  res.download("./api/login.js")
+  // res.download("./api/login.js");
   // 快速结束响应
   //   res.end()
   //   res.json(null)
@@ -19,10 +20,10 @@ app.get("/", (req, res) => {
   //     res.send(html)
   //   })
   // res.send 发送各种消息
-  //   res.set("Content-Type", "text/html")
-  //   res.send(Buffer.from("<p>some html</p>"))
-})
+  res.set("Content-Type", "text/html");
+  res.send(Buffer.from("<p>some html</p>"));
+});
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+  console.log(`Example app listening at http://localhost:${port}`);
+});
