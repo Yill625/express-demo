@@ -7,6 +7,7 @@ app.use("/login", login); // 路由中间件
 // 应用层中间件
 app.use(function (req, res, next) {
   console.log("Time:", Date.now());
+  throw Error(11);
   next();
 });
 
@@ -83,6 +84,11 @@ app.get("/", (req, res) => {
   // res.send(Buffer.from("<p>some html</p>"));
   res.send(req.ip);
   // res.sendStatus(404);
+});
+
+app.use(function (err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
 });
 
 app.listen(port, () => {
