@@ -27,8 +27,15 @@ app.get("/error", (req, res) => {
   //     res.send(html)
   //   })
   // res.send 发送各种消息
-  //   res.set("Content-Type", "text/html")
-  //   res.send(Buffer.from("<p>some html</p>"))
+  // res.set("Content-Type", "text/html");
+  // res.send(Buffer.from("<p>some html</p>"));
+  res.send(req.ip)
+  // res.sendStatus(404);
+})
+
+app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.status(500).send("Something broke!")
 })
 
 app.listen(port, () => {
