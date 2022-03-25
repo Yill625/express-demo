@@ -1,6 +1,9 @@
 const express = require("express")
 const app = express()
 const port = 3000
+const host =
+  process.env.NODE_ENV === "production" ? "175.178.163.85" : "127.0.0.1"
+console.log(process.env)
 app.get("/success", (req, res) => {
   res.json({ code: 0, result: [{ name: 111, age: 111, avatar: 111 }] })
 })
@@ -16,6 +19,6 @@ app.use(function (err, req, res, next) {
   res.status(500).send("Something broke!")
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(port, host)
+
+console.log(`Example app listening`, host, port)
