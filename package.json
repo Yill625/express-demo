@@ -21,6 +21,10 @@
   },
   "homepage": "https://github.com/Yill625/express-demo#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "axios": "^1.2.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.17.2",
+    "node-cache": "^5.1.2",
+    "nodemon": "^2.0.20"
   }
 }
