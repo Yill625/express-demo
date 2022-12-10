@@ -27,6 +27,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.17.2",
     "node-cache": "^5.1.2",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "qiniu": "^7.8.0"
   }
 }

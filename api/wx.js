@@ -60,15 +60,15 @@ router.get("/media_check_async", async (req, res) => {
     openid,
     scene: 1,
   };
-  const res = await axios({
+  const info = await axios({
     method: "post",
     url,
     data,
   });
-  if (res.status === 200 && res.data.openid) {
-    res.json({ status: 200, result: res.data });
+  if (res.status === 200 && info.data.openid) {
+    res.json({ status: 200, result: info.data });
   } else {
-    res.json({ status: 401, result: res.data });
+    res.json({ status: 401, result: info.data });
   }
 });
 

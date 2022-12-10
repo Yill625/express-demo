@@ -3,8 +3,10 @@ const app = express();
 const port = 3001;
 const host = "127.0.0.1";
 const wx = require("./api/wx");
+const oss = require("./api/oss");
 
 app.use("/wx", wx);
+app.use("/oss", oss);
 
 app.get("/success", (req, res) => {
   res.json({ code: 0, result: [{ name: 111, age: 111, avatar: 111 }] });
@@ -23,4 +25,4 @@ app.use(function (err, req, res, next) {
 
 app.listen(port, host);
 
-console.log(`Example app listening`, host, port);
+console.log(`Example app listening`, `http://${host}:${port}`);
